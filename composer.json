@@ -246,7 +246,8 @@
         "hypervel": {
             "providers": [
                 "Hypervel\\Notifications\\NotificationServiceProvider",
-                "Hypervel\\Telescope\\TelescopeServiceProvider"
+                "Hypervel\\Telescope\\TelescopeServiceProvider",
+                "Hypervel\\Telescope\\PermissionServiceProvider"
             ]
         },
         "branch-alias": {
