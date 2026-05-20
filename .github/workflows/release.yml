@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Remove optional "v" prefix
         id: version
@@ -55,7 +55,7 @@ jobs:
         run: sed -i "s/const VERSION = '.*';/const VERSION = '${{ steps.version.outputs.version }}';/g" src/foundation/src/Application.php
 
       - name: Commit version change
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "Update version to v${{ steps.version.outputs.version }}"
 
@@ -80,7 +80,7 @@ jobs:
           fi
 
       - name: Create release notes
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           generate_release_notes: true
           name: v${{ steps.version.outputs.version }}
